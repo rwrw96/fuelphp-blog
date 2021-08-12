@@ -11,8 +11,8 @@ class Model_Comment extends \Orm\Model
 			"label" => "Article id",
 			"data_type" => "int",
 		),
-		"" => array(
-			"label" => "",
+		"user_id" => array(
+			"label" => "user_id",
 			"data_type" => "int",
 		),
 		"body" => array(
@@ -56,6 +56,13 @@ class Model_Comment extends \Orm\Model
 	);
 
 	protected static $_belongs_to = array(
+		'user' => array(
+			'key_from' => 'id',
+			'key_to' => 'user_id',
+			'model_to' => 'Model_User',
+			'cascade_save' => false,
+			'cascade_delete' => false,
+		)
 	);
 
 }

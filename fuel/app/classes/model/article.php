@@ -47,15 +47,38 @@ class Model_Article extends \Orm\Model
 	protected static $_primary_key = array('id');
 
 	protected static $_has_many = array(
+		'comments' => array(
+			'key_from' => 'id',
+			'key_to' => 'article_id',
+			'Model_to' => 'Model_Comment',
+			'cascade_save' => false,
+			'cascade_delete' => true,
+		)
 	);
 
 	protected static $_many_many = array(
+		'categories' => array(
+			'key_from' => 'id',
+			'key_to' => 'id',
+			'key_through' => 'article_id',
+			'table_through' => 'article_category',
+			'model_to' => 'Model_Category',
+			'cascade_save' => false,
+			'cascade_delete' => false,
+		)
 	);
 
 	protected static $_has_one = array(
 	);
 
 	protected static $_belongs_to = array(
+		'user' => array(
+			'key_from' => 'user_id',
+			'key_to' => 'id',
+			'Model_to' => 'Model_User',
+			'cascade_save' => false,
+			'cascade_delete' => false,
+		)
 	);
 
 }
