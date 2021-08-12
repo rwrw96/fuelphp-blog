@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="utf-8">
+	<title><?php echo $title; ?></title>
+	<?php echo Asset::css('bootstrap.css'); ?>
+	<style>
+		body { margin: 40px; }
+	</style>
 </head>
 <body>
-    <h3><?php echo Html::anchor('article', '入門ブログ'); ?></h3>
-    <div class="container">
-        <div class="row">
-            <div class="span16">
-                <h1><?php echo $title; ?></h1>
-                <hr>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span16">
-            <?php echo $content; ?>
-        </div>
-    </div>
+	<div class="container">
+		<div class="col-md-12">
+			<h1><?php echo $title; ?></h1>
+			<hr>
+<?php if (Session::get_flash('success')): ?>
+			<div class="alert alert-success">
+				<strong>Success</strong>
+				<p>
+				<?php echo implode('</p><p>', e((array) Session::get_flash('success'))); ?>
+				</p>
+			</div>
+<?php endif; ?>
+<?php if (Session::get_flash('error')): ?>
+			<div class="alert alert-danger">
+				<strong>Error</strong>
+				<p>
+				<?php echo implode('</p><p>', e((array) Session::get_flash('error'))); ?>
+				</p>
+			</div>
+<?php endif; ?>
+		</div>
+		<div class="col-md-12">
+
+		</div>
+		<footer>
+			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
+			<p>
+				<a href="https://fuelphp.com">FuelPHP</a> is released under the MIT license.<br>
+				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
+			</p>
+		</footer>
+	</div>
 </body>
 </html>

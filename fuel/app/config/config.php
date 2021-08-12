@@ -307,6 +307,7 @@ return array(
 			'Fuel\\Core\\Response',
 			'Fuel\\Core\\View',
 			'Fuel\\Core\\ViewModel',
+			'Fuel\\core\\Fieldset',
 			'Closure',
 		),
 	),

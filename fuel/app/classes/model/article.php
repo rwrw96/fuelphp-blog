@@ -10,14 +10,19 @@ class Model_Article extends \Orm\Model
 		"title" => array(
 			"label" => "Title",
 			"data_type" => "varchar",
+			"validation" => array("required"),
+			"form"=> array("type"=>"text"),
+			"default" => 1,
 		),
 		"body" => array(
 			"label" => "Body",
 			"data_type" => "text",
+			"form"=> array("type"=>"textarea"),
 		),
 		"user_id" => array(
 			"label" => "User id",
 			"data_type" => "int",
+			"form"=> array("type"=>"hidden"),
 		),
 		"created_at" => array(
 			"label" => "Created at",
