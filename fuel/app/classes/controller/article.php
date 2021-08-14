@@ -32,7 +32,7 @@ class Controller_Article extends Controller_Template{
         // return Response::forge($view);
 
 
-    $form = Fieldset::forge('article')->add_model("Model_article");
+    $form = Fieldset::forge('article')->add_model("Model_Article");
     return $form;
     }
 
